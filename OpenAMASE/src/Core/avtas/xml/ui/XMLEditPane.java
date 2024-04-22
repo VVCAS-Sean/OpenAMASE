@@ -165,7 +165,7 @@ public class XMLEditPane extends JEditorPane {
                 try {
                     setSelectionStart(b.start);
                     setSelectionEnd(b.end);
-                    scrollRectToVisible(modelToView(b.start));
+                    scrollRectToVisible(modelToView2D(b.start).getBounds());
                     return;
                 } catch (BadLocationException ex) {
                     Logger.getLogger(XMLEditPane.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,7 +186,7 @@ public class XMLEditPane extends JEditorPane {
                 try {
                     setCaretPosition(getText().length());
                     setCaretPosition(b.start);
-                    Rectangle r = modelToView(b.start);
+                    Rectangle r = modelToView2D(b.start).getBounds();
                     scrollRectToVisible(r);
                     return;
                 } catch (BadLocationException ex) {
@@ -240,7 +240,7 @@ public class XMLEditPane extends JEditorPane {
                     setSelectionStart(charLoc);
                     setSelectionEnd(charLoc+1);
                     try {
-                        scrollRectToVisible(modelToView(charLoc));
+                        scrollRectToVisible(modelToView2D(charLoc).getBounds());
                         getHighlighter().addHighlight(charLoc, charLoc+1, HIGHLIGHT_PAINTER);
                     } catch (BadLocationException ex1) {
                         Logger.getLogger(XMLEditPane.class.getName()).log(Level.SEVERE, null, ex1);
@@ -346,7 +346,7 @@ public class XMLEditPane extends JEditorPane {
                 menu.add(gotoXMLMenu);
 
                 // selects the entire XML content that is under the cursor.
-                XmlNode content = getXML(viewToModel(p));
+                XmlNode content = getXML(viewToModel2D(p));
                 if (content != null) {
                     JMenu contentSelMenu = new JMenu("Select XML Content");
                     menu.add(contentSelMenu);

@@ -256,12 +256,13 @@ public class PersistentList<E> extends AbstractList<E> {
         }
     }
 
+    /**
     @Override
     protected void finalize() throws Throwable {
         close();
-        super.finalize();
     }
-
+    * Deprecated, uncalled
+    */
     /**
      *
      * @return size of the persistent storage file underlying this list.
