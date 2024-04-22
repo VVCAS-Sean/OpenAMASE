@@ -26,6 +26,7 @@ package avtas.xml.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -88,7 +89,7 @@ public class XmlView extends PlainView {
     }
 
     @Override
-    protected int drawUnselectedText(Graphics graphics, int x, int y, int p0,
+    protected float drawUnselectedText(Graphics2D graphics, float x, float y, int p0,
             int p1) throws BadLocationException {
 
         Document doc = getDocument();

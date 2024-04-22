@@ -93,7 +93,7 @@ public class WellClearLayer extends GraphicsLayer<MapGraphic> implements AppEven
     public void eventOccurred(Object event) {
         if (event instanceof DAIDALUSConfiguration) {
             DAIDALUSConfiguration config = (DAIDALUSConfiguration) event;
-            Long id = new Long(config.getEntityId());
+            Long id = config.getEntityId();
 
             WellClearState state;
             if (idToVehicleState.containsKey(id)) {
@@ -108,7 +108,7 @@ public class WellClearLayer extends GraphicsLayer<MapGraphic> implements AppEven
             
         } else if (event instanceof WellClearViolationIntervals) {
             WellClearViolationIntervals intervals = (WellClearViolationIntervals) event;
-            Long id = new Long(intervals.getEntityId());
+            Long id = intervals.getEntityId();
 
             WellClearState state;
             if (idToVehicleState.containsKey(id)) {

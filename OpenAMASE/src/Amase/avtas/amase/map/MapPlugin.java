@@ -293,7 +293,7 @@ public class MapPlugin extends AmasePlugin implements MapPopupListener, AppEvent
                     try {
                         Class c = Class.forName(ans);
                         if (MapLayer.class.isAssignableFrom(c)) {
-                            MapLayer layer = (MapLayer) c.newInstance();
+                            MapLayer layer = (MapLayer) c.getDeclaredConstructor().newInstance();
                             map.add(layer);
                             if (context != null) {
                                 context.addObject(layer);

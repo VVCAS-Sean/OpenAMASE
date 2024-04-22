@@ -45,8 +45,7 @@ import java.util.logging.Logger;
  *
  * @author AFRL/RQQD
  */
-public class BufferSupport {
-
+public class BufferSupport implements AutoCloseable{
     private RenderThread renderThread = null;
     private MapScaledImage frontGraphic = null;
     private MapScaledImage backGraphic = null;
@@ -62,9 +61,9 @@ public class BufferSupport {
     public BufferSupport(MapLayer layer) {
         this.layer = layer;
     }
-
-    @Override
-    protected void finalize() throws Throwable {
+    
+    @ Override
+    public void close() {
         if (backRaster != null) {
             backRaster.flush();
         }

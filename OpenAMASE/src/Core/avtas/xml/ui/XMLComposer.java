@@ -239,7 +239,7 @@ public class XMLComposer extends JPanel {
                 menu.add(new AbstractAction("Edit Element") {
 
                     public void actionPerformed(ActionEvent ae) {
-                        XmlNode c = textEditor.getXML(textEditor.viewToModel(p));
+                        XmlNode c = textEditor.getXML(textEditor.viewToModel2D(p));
                         if (c != null) {
                             TreePath p = xmlTree.getPath(c);
                             if (p != null) {
