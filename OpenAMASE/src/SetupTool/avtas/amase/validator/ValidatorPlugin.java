@@ -80,7 +80,7 @@ public class ValidatorPlugin extends AmasePlugin implements HyperlinkListener {
             for (Element testEl : testsEl) {
                 try {
                     Class c = Class.forName(testEl.getText());
-                    Object test = c.newInstance();
+                    Object test = c.getDeclaredConstructor().newInstance();
                     if (test instanceof Test && !tests.contains(test)) {
                         tests.add((Test) test);
                     }

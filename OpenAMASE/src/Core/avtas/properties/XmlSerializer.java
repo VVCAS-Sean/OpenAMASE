@@ -21,6 +21,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +116,7 @@ public class XmlSerializer {
         String className = el.getName();
         try {
             Class c = Class.forName(className);
-            Object o = c.newInstance();
+            Object o = c.getDeclaredConstructor().newInstance();
             for (Element child : el.getChildElements()) {
                 
                 Field f = ReflectionUtils.getField(c, child.getName());
@@ -143,7 +144,9 @@ public class XmlSerializer {
                 }
             }
             return o;
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+        } catch (ClassNotFoundException | InstantiationException |
+                    IllegalAccessException | NoSuchMethodException |
+                    InvocationTargetException ex ) {
             Logger.getLogger(XmlSerializer.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
