@@ -45,7 +45,7 @@ public class ReflectionUtils {
             //probably should do more checks here, but anything falls to the "could not create" exception anyway
             return Class.forName(classname).getDeclaredMethod("getInstance").invoke(null);
         }
-        Object o = Class.forName(classname).newInstance();
+        Object o = Class.forName(classname).getDeclaredConstructor().newInstance();
         return o;
 
     }
