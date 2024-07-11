@@ -16,11 +16,9 @@ The AMASE simulation models 5-DOF (coordinated turning) flight dynamics with sel
 
 ## Requirements
 
-*OpenAMASE* is a Java program that will run on any system with [Java][java download] installed.
+*OpenAMASE* is a Java program that will run on any system with an appropriate version of Java installed.
 
-[java download]: https://java.com/en/download/
-
-To modify *OpenAMASE*, the Java JDK 1.8 or higher is required. All external libraries that *OpenAMASE*
+To build or modify *OpenAMASE*, the Java JDK 1.11 or higher is required. All external libraries that *OpenAMASE*
 requires are included in the `lib` folder. For convenience, Netbeans project files are included to allow
 developers a quick way to change and re-build *OpenAMASE*.
 
