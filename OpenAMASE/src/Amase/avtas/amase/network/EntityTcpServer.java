@@ -87,7 +87,7 @@ public class EntityTcpServer {
     }
 
     protected void messageReceived(LMCPObject lmcp) {
-
+        
         if (lmcp instanceof AutomationResponse) {
             processAutomationResponse((AutomationResponse) lmcp);
         } else {
